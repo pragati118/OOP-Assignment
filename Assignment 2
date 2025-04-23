@@ -1,0 +1,201 @@
+Assignment 2
+ 
+ 
+ #include <iostream>
+ #include <string>
+ using namespace std;
+ 
+ class Account {
+ class BankAccount {
+ protected:
+     string name;
+     int accNo;
+     string accType;
+     float balance;
+     string recipientName;
+     int accountNumber;
+     string accountType;
+     float currentBalance;
+public:
+     void input() {
+         cout << "Enter name: ";
+         cin >> name;
+         cout << "Enter account number: ";
+         cin >> accNo;
+         cout << "Enter account type: ";
+         cin >> accType;
+         cout << "Enter initial balance: ";
+         cin >> balance;
+     void openAccount() {
+         cout << "Enter account recipient name: ";
+         cin>>recipientName;
+         cout << "Enter the account number: ";
+         cin >> accountNumber;
+         cout << "Enter type of the account: ";
+         cin >> accountType;
+         cout << "Enter starting balance: ";
+         cin >> currentBalance;
+     }
+ 
+     void deposit() {
+         float amt;
+         cout << "Enter amount to deposit: ";
+         cin >> amt;
+         balance += amt;
+         cout << "Deposited.\n";
+     void depositAmount() {
+         float deposit;
+         cout << "Enter deposit amount: ";
+         cin >> deposit;
+         currentBalance += deposit;
+         cout << "Deposit successful.\n";
+     }
+ 
+     void showBalance() {
+         cout << "Balance: Rs. " << balance << endl;
+     void displayBalance() {
+         cout << "Current balance: Rs. " << currentBalance << endl;
+     }
+ };
+ 
+ class SavingAccount : public Account {
+ class Savings : public BankAccount {
+ public:
+     void addInterest() {
+     void calculateInterest() {
+         float rate;
+         int time;
+         cout << "Interest rate (%): ";
+         int years;
+         cout << "Enter annual interest rate (%): ";
+         cin >> rate;
+         cout << "Time (years): ";
+         cin >> time;
+         float interest = (balance * rate * time) / 100;
+         balance += interest;
+         cout << "Interest added: Rs. " << interest << endl;
+         cout << "Enter duration (in years): ";
+         cin >> years;
+         float interest = (currentBalance * rate * years) / 100.0f;
+         currentBalance += interest;
+         cout << "Interest of Rs. " << interest << " added to account.\n";
+     }
+ 
+     void withdraw() {
+         float amt;
+         cout << "Enter amount to withdraw: ";
+         cin >> amt;
+         if (amt <= balance) {
+             balance -= amt;
+             cout << "Withdrawn.\n";
+     void withdrawMoney() {
+         float amount;
+         cout << "Enter withdrawal amount: ";
+         cin >> amount;
+         if (amount <= currentBalance) {
+             currentBalance -= amount;
+             cout << "Withdrawal is  successful.\n";
+         } else {
+             cout << "Insufficient balance.\n";
+             cout << " Insufficient funds.\n";
+         }
+     }
+ };
+ 
+ class CurrentAccount : public Account {
+ class Current : public BankAccount {
+ public:
+     void withdraw() {
+         float amt;
+         cout << "Enter amount to withdraw: ";
+         cin >> amt;
+         if (amt <= balance) {
+             balance -= amt;
+             cout << "Withdrawn.\n";
+     void withdrawMoney() {
+         float amount;
+         cout << "Enter withdrawal amount: ";
+         cin >> amount;
+         if (amount <= currentBalance) {
+             currentBalance -= amount;
+             cout << "Withdrawal successful.\n";
+         } else {
+             cout << "Insufficient balance.\n";
+             cout << " Insufficient funds.\n";
+         }
+         checkMin();
+         checkMinimum();
+     }
+ 
+     void checkMin() {
+         if (balance < 1000) {
+             cout << "Below minimum. Rs. 100 penalty applied.\n";
+             balance -= 100;
+     void checkMinimum() {
+         if (currentBalance < 2000) {
+             cout << "Balance below minimum. Penalty of Rs. 200 applied.\n";
+             currentBalance -= 200;
+         }
+     }
+ };
+int main() {
+     SavingAccount sa;
+     CurrentAccount ca;
+     int type;
+     Savings sAcc;
+     Current cAcc;
+     int option;
+ 
+     cout << "Select account type:\n1. Saving\n2. Current\nChoice: ";
+     cin >> type;
+     cout << "Choose account type:\n1. Savings Account\n2. Current Account\nEnter choice: ";
+     cin >> option;
+ 
+     if (type == 1) {
+         sa.input();
+         sa.deposit();
+         sa.addInterest();
+         sa.withdraw();
+         sa.showBalance();
+     } else if (type == 2) {
+         ca.input();
+         ca.deposit();
+         ca.showBalance();
+         ca.withdraw();
+         ca.showBalance();
+     if (option == 1) {
+         sAcc.openAccount();
+         sAcc.depositAmount();
+         sAcc.calculateInterest();
+         sAcc.withdrawMoney();
+         sAcc.displayBalance();
+     } else if (option == 2) {
+         cAcc.openAccount();
+         cAcc.depositAmount();
+         cAcc.displayBalance();
+         cAcc.withdrawMoney();
+         cAcc.displayBalance();
+     } else {
+         cout << "Invalid option.\n";
+         cout << "Invalid selection.\n";
+     }
+ 
+     return 0;
+ }
+ output
+ Choose account type:
+ 1. Savings Account
+ 2. Current Account
+ Enter choice: 1
+ Enter account recipient name: Pragati
+ Enter the account number: 1234
+ Enter type of the account: saving
+ Enter starting balance: 5000
+ Enter deposit amount: 1500
+ Deposit successful.
+ Enter annual interest rate (%): 2
+ Enter duration (in years): 2
+ Interest of Rs. 260 added to account.
+ Enter withdrawal amount: 2000
+ Withdrawal is  successful.
+ Current balance: Rs. 4760
