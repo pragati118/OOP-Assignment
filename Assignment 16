@@ -1,0 +1,87 @@
+Assignment 16
+
+#include <iostream>
+using namespace std;
+
+class RBI {
+protected:
+    float minInterest;
+    float minBalance;
+    float maxWithdrawal;
+
+public:
+    RBI() {
+        minInterest = 4.0;
+        minBalance = 1000.0;
+        maxWithdrawal = 20000.0;
+    }
+
+    void Guidelines() {
+        cout << "RBI Guidelines that should be followed:\n";
+        cout << "Minimum Interest Rate: " << minInterest << "%" << endl;
+        cout << "Minimum Balance Allowed: Rs. " << minBalance << endl;
+        cout << "Maximum Withdrawal Limit: Rs. " << maxWithdrawal << endl;
+    }
+};
+
+class IOB : public RBI {
+private:
+    float bankInterest;
+
+public:
+    IOB() {
+        bankInterest = 4.5;
+    }
+
+    void showIOBInfo() {
+        cout << "\nIOB Bank Info:\n";
+        cout << "Interest Rate is: " << bankInterest << "%" << endl;
+        cout << "Minimum Balance should be: Rs. " << minBalance << endl;
+        cout << "Max Withdrawal is: Rs. " << maxWithdrawal << endl;
+    }
+};
+
+class PNB : public RBI {
+private:
+    float bankInterest;
+
+public:
+    PNB() {
+        bankInterest = 5.0;
+    }
+
+    void showPNBInfo() {
+        cout << "\nPNB Bank Info:\n";
+        cout << "Interest Rate: " << bankInterest << "%" << endl;
+        cout << "Minimum Balance: Rs. " << minBalance << endl;
+        cout << "Max Withdrawal: Rs. " << maxWithdrawal << endl;
+    }
+};
+
+int main() {
+    RBI r;
+    IOB iob;
+    PNB pnb;
+
+    r.Guidelines();
+    iob.showIOBInfo();
+    pnb.showPNBInfo();
+
+    return 0;
+}
+
+output:
+RBI Guidelines that should be followed:
+Minimum Interest Rate: 4%
+Minimum Balance Allowed: Rs. 1000
+Maximum Withdrawal Limit: Rs. 20000
+
+IOB Bank Info:
+Interest Rate is: 4.5%
+Minimum Balance should be: Rs. 1000
+Max Withdrawal is: Rs. 20000
+
+PNB Bank Info:
+Interest Rate: 5%
+Minimum Balance: Rs. 1000
+Max Withdrawal: Rs. 20000
