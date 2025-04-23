@@ -1,0 +1,56 @@
+Assignment 15
+
+#include <iostream>
+using namespace std;
+class Shape {
+public:
+    void displayshape() {
+        cout << "This is a shape" << endl;
+    }
+};
+class Polygon : public Shape {
+public:
+    void displayshape() {
+        cout << "Polygon is a shape" << endl;
+    }
+};
+class Rectangle : public Polygon {
+public:
+    void displayshape() {
+        cout << "Rectangle is a polygon" << endl;
+    }
+};
+class Triangle : public Polygon {
+public:
+    void displayshape() {
+        cout << "Triangle is a polygon" << endl;
+    }
+};
+class Square : public Rectangle {
+public:
+    void displayshape() {
+        cout << "Square is a rectangle" << endl;
+    }
+};
+int main() {
+    Shape s;
+    Polygon p;
+    Rectangle r;
+    Triangle t;
+    Square squar;
+    
+    s.displayshape();
+    p.displayshape();
+    r.displayshape();
+    t.displayshape();
+    squar.displayshape();
+
+    return 0;
+}
+
+Output:
+This is a shape
+Polygon is a shape
+Rectangle is a polygon
+Triangle is a polygon
+Square is a rectangle
