@@ -1,0 +1,131 @@
+Assignment 7
+ 
+ #include <iostream>
+ using namespace std;
+ 
+ class SimpleCircle {
+ private:
+     int itsRadius;
+ 
+ public:
+     // Default constructor is used, sets radius to 9
+     SimpleCircle() : itsRadius(9) {}
+ 
+     // Parameterized constructor assigns given value to radius
+     SimpleCircle(int radius) : itsRadius(radius) {}
+ 
+     // Destructor starts using ~ symbol, called when object is destructed
+     ~SimpleCircle() {}
+ 
+     // Copy constructor creates a new object as a copy of another
+     SimpleCircle(const SimpleCircle& different) {
+         itsRadius = different.itsRadius;
+     }
+ 
+     // Assignment operator to copy radius if objects are not the same
+     SimpleCircle& operator=(const SimpleCircle& other) {
+         if (this != &other) {
+             itsRadius = other.itsRadius;
+         }
+         return *this;
+     }
+ 
+     int getRadius() const {
+         return itsRadius;
+     }
+ 
+     SimpleCircle& operator++() {
+         ++itsRadius;
+         return *this;
+     }
+ 
+     SimpleCircle operator++(int) {
+         SimpleCircle temp = *this;
+         itsRadius++;
+         return temp;
+     }
+ };
+ 
+ int main() {
+     SimpleCircle c1;        
+     SimpleCircle c2(7);      
+ 
+     ++c1;                   
+     c2++;                   
+ 
+     cout << "c1 radius is: " << c1.getRadius() << endl;
+     cout << "c2 radius is: " << c2.getRadius() << endl;
+ 
+     c1 = c2;                
+ 
+     cout << "After assignment, c1 radius: " << c1.getRadius() << endl;
+ 
+     return 0;
+ }
+ #include <iostream>
+ using namespace std;
+ 
+ class SimpleCircle {
+ private:
+     int itsRadius;
+ 
+ public:
+     // Default constructor is used, sets radius to 9
+     SimpleCircle() : itsRadius(9) {}
+ 
+     // Parameterized constructor assigns given value to radius
+     SimpleCircle(int radius) : itsRadius(radius) {}
+ 
+     // Destructor starts using ~ symbol, called when object is destructed
+     ~SimpleCircle() {}
+ 
+     // Copy constructor creates a new object as a copy of another
+     SimpleCircle(const SimpleCircle& different) {
+         itsRadius = different.itsRadius;
+     }
+ 
+     // Assignment operator to copy radius if objects are not the same
+     SimpleCircle& operator=(const SimpleCircle& other) {
+         if (this != &other) {
+             itsRadius = other.itsRadius;
+         }
+         return *this;
+     }
+ 
+     int getRadius() const {
+         return itsRadius;
+     }
+ 
+     SimpleCircle& operator++() {
+         ++itsRadius;
+         return *this;
+     }
+ 
+     SimpleCircle operator++(int) {
+         SimpleCircle temp = *this;
+         itsRadius++;
+         return temp;
+     }
+ };
+ 
+ int main() {
+     SimpleCircle c1;        
+     SimpleCircle c2(7);      
+ 
+     ++c1;                   
+     c2++;                   
+ 
+     cout << "c1 radius is: " << c1.getRadius() << endl;
+     cout << "c2 radius is: " << c2.getRadius() << endl;
+ 
+     c1 = c2;                
+ 
+     cout << "After assignment, c1 radius: " << c1.getRadius() << endl;
+ 
+     return 0;
+ }
+ 
+ output:
+ c1 radius is: 10
+ c2 radius is: 8
+ After assignment, c1 radius: 8
