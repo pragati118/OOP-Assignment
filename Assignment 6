@@ -1,0 +1,71 @@
+Assignment 6
+ 
+ #include <iostream>
+ using namespace std;
+ 
+ class DB;
+ 
+ class DM {
+     int meters, cms;
+ public:
+     DM() : meters(0), cms(0) {}
+     DM(int m, int c) : meters(m), cms(c) {}
+ 
+     void getData() {
+         cout << "Enter distance in meters and centimeters: ";
+         cin >> meters >> cms;
+     }
+ 
+     void showData() const {
+         cout << "\nMeters: " << meters;
+         cout << "\nCentimeters: " << cms;
+     }
+ 
+     friend DM addDistance(DB, DM);
+ };
+ 
+ class DB {
+     int feet, inch;
+ public:
+     DB() : feet(0), inch(0) {}
+ 
+     void getData() {
+         cout << "Enter distance in feet and inches: ";
+         cin >> feet >> inch;
+     }
+ 
+     void showData() const {
+         cout << "\nFeet: " << feet;
+         cout << "\nInches: " << inch;
+     }
+ 
+     friend DM addDistance(DB, DM);
+ };
+ 
+ DM addDistance(DB dB, DM dM) {
+     int totalCms_DM = dM.meters * 100 + dM.cms;
+     int totalCms_DB = (dB.feet * 3048 + dB.inch * 254) / 100;
+     int totalCms = totalCms_DM + totalCms_DB;
+     int meters = totalCms / 100;
+     int cms = totalCms % 100;
+     return DM(meters, cms);
+ }
+ 
+ int main() {
+     DM dm;
+     DB db;
+     dm.getData();
+     db.getData();
+     DM result = addDistance(db, dm);
+     cout << "\nTotal Distance after addition: ";
+     result.showData();
+     return 0;
+ }
+ 
+ output:
+ Enter distance in meters and centimeters: 2 50
+ Enter distance in feet and inches: 3 20
+ 
+ Total Distance after addition: 
+ Meters: 3
+ Centimeters: 92
