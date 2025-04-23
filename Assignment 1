@@ -1,0 +1,218 @@
+Assignment 1
+ 
+ #include <iostream>
+ #include <string>
+ using namespace std;
+ 
+ class Account {
+ class BankAccount {
+ protected:
+     string name;
+     int accNo;
+     string accType;
+     float balance;
+     string holderName;
+     int account_no;
+     string type;
+     float balance; // renamed from currentBalance
+ 
+ public:
+     void input() {
+         cout << "Enter customer name: ";
+         cin >> name;
+         cout << "Enter account number: ";
+         cin >> accNo;
+         cout << "Enter initial balance: ";
+     void collectDetails() {
+         cout << "Enter the Customer Name: ";
+         cin >> holderName;
+         cout << "Enter the Account Number: ";
+         cin >> account_no;
+         cout << "Enter the starting balance: ";
+         cin >> balance;
+     }
+ 
+     void deposit() {
+         float amount;
+         cout << "Enter deposit amount: ";
+         cin >> amount;
+         balance += amount;
+         cout << "Deposit successful.\n";
+     void addDeposit() {
+         float depositAmount;
+         cout << "Enter the Amount to Deposit: ";
+         cin >> depositAmount;
+         balance += depositAmount;
+         cout << "Amount deposited successfully.\n";
+     }
+ 
+     void showBalance() {
+         cout << "Balance: Rs. " << balance << endl;
+     void viewBalance() const {
+         cout << "Available Balance: Rs. " << balance << endl;
+     }
+ };
+ 
+ class SavingAccount : public Account {
+ class Savings : public BankAccount {
+ public:
+     void addInterest() {
+         float rate;
+         int time;
+         cout << "Interest rate (%): ";
+         cin >> rate;
+         cout << "Time (years): ";
+         cin >> time;
+         float interest = (balance * rate * time) / 100;
+     void applyInterest() {
+         float interestRate;
+         int years;
+         cout << "Enter Annual Interest Rate (%): ";
+         cin >> interestRate;
+         cout << "Time in Years: ";
+         cin >> years;
+         float interest = (balance * interestRate * years) / 100;
+         balance += interest;
+         cout << "Interest added: Rs. " << interest << endl;
+         cout << "Interest of Rs. " << interest << " has been added.\n";
+     }
+ 
+     void withdraw() {
+         float amount;
+         cout << "Withdraw amount: ";
+         cin >> amount;
+         if (amount <= balance) {
+             balance -= amount;
+             cout << "Withdrawal complete.\n";
+         float withdrawal;
+         cout << "Enter amount to withdraw: ";
+         cin >> withdrawal;
+         if (withdrawal <= balance) {
+             balance -= withdrawal;
+             cout << "Withdrawal transaction successfully completed.\n";
+         } else {
+             cout << "Insufficient balance.\n";
+             cout << "Transaction failed due to insufficient funds.\n";
+         }
+     }
+ };
+ 
+ 
+ class CurrentAccount : public Account {
+ class Current : public BankAccount {
+ public:
+     void withdraw() {
+         float amount;
+         cout << "Withdraw amount: ";
+         cin >> amount;
+         if (amount <= balance) {
+             balance -= amount;
+             cout << "Withdrawal complete.\n";
+         float withdrawal;
+         cout << "Enter withdrawal amount: ";
+         cin >> withdrawal;
+ 
+         if (withdrawal <= balance) {
+             balance -= withdrawal;
+             cout << "Withdrawal completed.\n";
+         } else {
+             cout << "Insufficient balance.\n";
+             cout << "Cannot withdraw: Not enough balance.\n";
+         }
+         checkMinimum();
+ 
+         checkMinBalance();
+     }
+ 
+     void checkMinimum() {
+         if (balance < 1000) {
+             cout << "Below minimum balance. Penalty Rs. 100 charged.\n";
+     void checkMinBalance() {
+         if (balance < 2000) {
+             cout << "Below minimum balance. Rs. 100 penalty deducted.\n";
+             balance -= 100;
+         }
+     }
+ };
+ 
+ int main() {
+     SavingAccount sa;
+     CurrentAccount ca;
+ 
+     int choice;
+     cout << "Select account type:\n1. Saving\n2. Current\nChoice: ";
+     cin >> choice;
+ 
+     if (choice == 1) {
+         sa.input();
+         sa.deposit();
+         sa.addInterest();
+         sa.withdraw();
+         sa.showBalance();
+     } else if (choice == 2) {
+         ca.input();
+         ca.deposit();
+         ca.showBalance();
+         ca.withdraw();
+         ca.showBalance();
+     } else {
+         cout << "Invalid choice.\n";
+     Savings savingsAcc;
+     Current currentAcc;
+     int userChoice;
+ 
+     cout << "Choose account category:\n1. Savings Account\n2. Current Account\nOption: ";
+     cin >> userChoice;
+ 
+     switch (userChoice) {
+         case 1:
+             savingsAcc.collectDetails();
+             savingsAcc.addDeposit();
+             savingsAcc.applyInterest();
+             savingsAcc.withdraw();
+             savingsAcc.viewBalance();
+             break;
+ 
+         case 2:
+             currentAcc.collectDetails();
+             currentAcc.addDeposit();
+             currentAcc.viewBalance();
+             currentAcc.withdraw();
+             currentAcc.viewBalance();
+             break;
+ 
+         default:
+             cout << "Invalid input.\n";
+     }
+ 
+     return 0;
+ }
+ 
+ Output
+ Choose account category:
+ 1. Savings Account
+ 2. Current Account
+ Option: 1
+ Enter the Customer Name: Pragati
+ Enter the Account Number: 1234
+ Enter the starting balance: 5000
+ Enter the Amount to Deposit: 1500
+ Amount deposited successfully.
+ Enter Annual Interest Rate (%): 5
+ Time in Years: 2
+ Interest of Rs. 650 has been added.
+ Enter amount to withdraw: 2000
+ Withdrawal transaction successfully completed.
+ Available Balance: Rs. 5150
+ 
+ Option: 2
+ Enter the Customer Name: Bhumika
+ Enter the Account Number: 8262
+ Enter the starting balance: 3000
+ Enter the Amount to Deposit: 1000
+ Amount deposited successfully.
+ Available Balance: Rs. 4000
+ Enter withdrawal amount: 2500
+ Withdrawal completed.
+ Below minimum balance. Rs. 100 penalty deducted.
+ Available Balance: Rs. 1400
