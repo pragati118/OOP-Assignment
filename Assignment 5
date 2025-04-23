@@ -1,0 +1,96 @@
+Assignment 5
+ 
+ #include <iostream>
+ #include <string>
+ using namespace std;
+ 
+ class Book {
+ public:
+ private:
+     string title, author, publisher;
+     int price;
+     int stock;
+     int price, stock;
+ 
+     Book(string t, string a, string pb, int p, int s) {
+         title = t;
+         author = a;
+         publisher = pb;
+ public:
+     
+     Book(string tit, string aut, string pub, int p, int s) {
+         title = tit;
+         author = aut;
+         publisher = pub;
+         price = p;
+         stock = s;
+     }
+ 
+     void display() {
+         cout << "Title: " << title << endl;
+         cout << "Author: " << author << endl;
+         cout << "Publisher: " << publisher << endl;
+         cout << "Price: Rs. " << price << endl;
+         cout << "Stock: " << stock << endl;
+     }
+ 
+     bool IfItMatches(string t, string a) {
+     bool matches(string t, string a) {
+         return (t == title && a == author);
+     }
+ 
+     void bookUWantToBuy(int copies) {
+     void showDetails() {
+         cout << "\n Book Details" << endl;
+         cout << "Title     : " << title << endl;
+         cout << "Author    : " << author << endl;
+         cout << "Publisher : " << publisher << endl;
+         cout << "Price     : Rs. " << price << endl;
+         cout << "Available : " << stock << " copies" << endl;
+     }
+     void buyCopies(int copies) {
+         if (copies <= stock) {
+             cout << "Total Cost: Rs. " << price * copies << endl;
+             int total = copies * price;
+             cout << "Total Cost: Rs. " << total << endl;
+         } else {
+             cout << "Not enough copies!!" << endl;
+             cout << "Required copies are not in stock." << endl;
+         }
+     }
+ };
+ 
+ int main() {
+     Book b1("C++ Basics", "Shruti", "PCCOE", 299, 10);
+     Book a("god of small thing", "Arundhati Roy", "shruti", 220, 10);
+ 
+     string searchTitle, searchAuthor;
+     int copies;
+ 
+     cout << "Enter title of book: ";
+     cout << "Enter book title to search: ";
+     getline(cin, searchTitle);
+     cout << "Enter author name: ";
+     cout << "Enter author's name: ";
+     getline(cin, searchAuthor);
+ 
+     if (b1.IfItMatches(searchTitle, searchAuthor)) {
+         cout << "Book Found!" << endl;
+         b1.display();
+     if (a.matches(searchTitle, searchAuthor)) {
+         cout << "\nBook Found!" << endl;
+         a.showDetails();
+ 
+         cout << "How many copies do you want? ";
+         cout << "\nEnter number of copies required: ";
+         cin >> copies;
+ 
+         b1.bookUWantToBuy(copies);
+ 
+         a.buyCopies(copies);
+     } else {
+         cout << "Book Not Available." << endl;
+         cout << "\nBook is Not Available." << endl;
+     }
+ 
+     return 0;}
