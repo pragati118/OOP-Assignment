@@ -1,0 +1,67 @@
+Assignment 11
+ 
+ #include <iostream>
+ using namespace std;
+ 
+ class Mammals {
+ public:
+ void mammalFunc() {
+ cout &lt;&lt; &quot;hello I am a mammal&quot; &lt;&lt; endl;
+ }
+     void mammalFunc() {
+         cout << "hello I am a mammal" << endl;
+     }
+ };
+ 
+ class MarineAnimals {
+ public:
+ void marineFunc() {
+ cout &lt;&lt; &quot;hello I am a marine animal&quot; &lt;&lt; endl;
+ }
+     void marineFunc() {
+         cout << "hello I am a marine animal" << endl;
+     }
+ };
+ 
+ class BlueWhale : public Mammals, public MarineAnimals {
+ public:
+ void blueWhale() {
+ cout &lt;&lt; &quot;I belong to both the categories Mammals as well as Marine Animals&quot; &lt;&lt; endl;
+ }
+     void blueWhale() {
+         cout << "I belong to both the categories Mammals as well as Marine Animals" << endl;
+     }
+ };
+ 
+ int main() {
+ Mammals m;
+ MarineAnimals a;
+ BlueWhale b;
+     Mammals m;
+     MarineAnimals a;
+     BlueWhale b;
+ 
+ m.mammalFunc();
+ a.marineFunc();
+ b.blueWhale();
+ b.mammalFunc();
+ b.marineFunc();
+     m.mammalFunc();
+     a.marineFunc();
+     b.blueWhale();
+     b.mammalFunc();
+     b.marineFunc();
+ 
+ return 0;
+     return 0;
+ }
+ Output
+ 
+ output
+ hello I am a mammal
+ hello I am a marine animal
+ I belong to both the categories Mammals as well as Marine Animals
+ hello I am a mammal
+ hello I am a marine animal
+ 
+ === Code Execution Successful ===
