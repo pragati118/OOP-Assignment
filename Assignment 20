@@ -1,0 +1,38 @@
+Assignment 20
+
+#include <iostream>
+using namespace std;
+
+class AddAmount {
+private:
+    int amount;
+
+public:
+    // as there is no parameter in constructor
+    AddAmount() {
+        amount = 50;
+    }
+
+    // used Constructor with parameter
+    AddAmount(int sum) {
+        amount = 50 + sum;
+    }
+
+    void displayAmount() {
+        cout << "Total amount in my Piggie Bank: " << amount << endl;
+    }
+};
+
+int main() {
+    AddAmount piggiebank1;
+    piggiebank1.displayAmount();
+
+    AddAmount piggiebank2(120);
+    piggiebank2.displayAmount();
+
+    return 0;
+}
+
+output:
+Total amount in my Piggie Bank: 50
+Total amount in my Piggie Bank: 170
