@@ -1,0 +1,69 @@
+ASsignment 13
+
+#include <iostream>
+#include <string>
+using namespace std;
+int nextRollNumber = 101;
+class Student {
+    protected:
+    int rollNumber;
+    string fullName;
+    int marks[3];
+
+public:
+    Student() {
+        rollNumber = nextRollNumber++;
+    }
+
+    void Data() {
+        cout << "Enter student name: ";
+        cin >> fullName;
+
+        cout << "Enter marks for Physics: ";
+        cin >> marks[0];
+
+        cout << "Enter marks for Chemistry: ";
+        cin >> marks[1];
+
+        cout << "Enter marks for Math: ";
+        cin >> marks[2];
+    }
+
+    void displayData() const {
+        cout << "\nStudent Result" << endl;
+        cout << "Roll Number: " << rollNumber << endl;
+        cout << "Name: " << fullName << endl;
+        cout << "Physics: " << marks[0] << endl;
+        cout << "Chemistry: " << marks[1] << endl;
+        cout << "Math: " << marks[2] << endl;
+
+        int totalMarks = marks[0] + marks[1] + marks[2];
+        float percentage = totalMarks / 3.0f;
+
+        cout << "Total Marks: " << totalMarks << "/300" << endl;
+        cout << "Average: " << percentage << "%" << endl;
+    }
+};
+
+int main() {
+    Student student1;
+    student1.Data();
+    student1.displayData();
+
+    return 0;
+}
+
+output:
+Enter student name: Pragati
+Enter marks for Physics: 98
+Enter marks for Chemistry: 92
+Enter marks for Math: 95
+
+Student Result
+Roll Number: 101
+Name: Pragati
+Physics: 98
+Chemistry: 92
+Math: 95
+Total Marks: 284/300
+Average: 94.6667%
