@@ -1,0 +1,70 @@
+Assignment 10
+ 
+ #include <iostream>
+ #include <cmath>
+ using namespace std;
+ 
+ class Employee {
+ public:
+     int age;
+     int yearsOfService;
+     float salary;
+ 
+     void setAge(int a) { 
+         age = a;
+     }
+ 
+     void setYearsOfService(int years) {
+         yearsOfService = years;
+     }
+ 
+     void setSalary(float s) {
+         salary = s;
+     }
+ 
+     int getAge() {
+         return age;
+     }
+ 
+     int getYearsOfService() {
+         return yearsOfService;
+     }
+ 
+     float getSalary() {
+         return salary;
+     }
+ 
+     void display() {
+         cout << "Age: " << age << endl;
+         cout << "Years of Service: " << yearsOfService << endl;
+         cout << "Salary: Rs" << salary << endl;  
+     }     
+ };
+ 
+ int main() {
+     Employee e1, e2;
+ 
+     e1.setAge(40);
+     e1.setYearsOfService(15);
+     e1.setSalary(65000);
+     cout << "Employee 1:" << endl;
+     e1.display();
+ 
+     e2.setAge(85);
+     e2.setYearsOfService(30);
+     e2.setSalary(120000);
+     cout << "Employee 2:" << endl;
+     e2.display();
+ 
+     return 0;
+ }
+ 
+ Output:
+ Employee 1:
+ Age: 40
+ Years of Service: 15
+ Salary: Rs65000
+ Employee 2:
+ Age: 85
+ Years of Service: 30
+ Salary: Rs120000
