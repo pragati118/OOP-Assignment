@@ -1,0 +1,150 @@
+Assignment 14
+
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    float mileage, price;
+
+    void getVehicleDetail() {
+        cout << "Enter the mileage in km/l: ";
+        cin >> mileage;
+        cout << "Enter the price of vehicle in Rs: ";
+        cin >> price;
+    }
+
+    void showVehicleDetail() {
+        cout << "Mileage: " << mileage << " km/l\n";
+        cout << "Price: Rs " << price << endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    float cost;
+    int warranty, seats;
+    string typeOfFuel;
+
+    void getCarDetail() {
+        getVehicleDetail();
+        cout << "Enter the cost, warranty (in years), seats, and fuel type (Petrol/Diesel): ";
+        cin >> cost >> warranty >> seats >> typeOfFuel;
+    }
+
+    void showCarDetail() {
+        showVehicleDetail();
+        cout << "Cost: Rs " << cost << "\nWarranty: " << warranty
+             << " years\nSeats: " << seats << "\nFuel Type: " << typeOfFuel << endl;
+    }
+};
+
+class Audi : public Car {
+public:
+    string model;
+
+    void input() {
+        cout << "Enter type of Audi model: ";
+        cin >> model;
+        getCarDetail();
+    }
+
+    void show() {
+        cout << "\nAudi Details\nModel: " << model << endl;
+        showCarDetail();
+    }
+};
+
+class Ford : public Car {
+public:
+    string model;
+
+    void input() {
+        cout << "Enter Ford model: ";
+        cin >> model;
+        getCarDetail();
+    }
+
+    void show() {
+        cout << "\nFord Details\nModel: " << model << endl;
+        showCarDetail();
+    }
+};
+
+class Bike : public Vehicle {
+public:
+    int cyl, gears;
+    string cooling, wheels;
+    float tank;
+
+    void getBikeDetail() {
+        getVehicleDetail();
+        cout << "Enter cylinders, gears, cooling type, wheel type, and fuel tank size (in inches): ";
+        cin >> cyl >> gears >> cooling >> wheels >> tank;
+    }
+
+    void showBikeDetail() {
+        showVehicleDetail();
+        cout << "Cylinders: " << cyl << "\nGears: " << gears << "\nCooling: " << cooling
+             << "\nWheels: " << wheels << "\nTank Size: " << tank << " inches" << endl;
+    }
+};
+
+class Bajaj : public Bike {
+public:
+    string make;
+
+    void input() {
+        cout << "Enter Bajaj make type: ";
+        cin >> make;
+        getBikeDetail();
+    }
+
+    void show() {
+        cout << "\nBajaj Details\nMake: " << make << endl;
+        showBikeDetail();
+    }
+};
+
+class TVS : public Bike {
+public:
+    string make;
+
+    void input() {
+        cout << "Enter TVS make type: ";
+        cin >> make;
+        getBikeDetail();
+    }
+
+    void show() {
+        cout << "\nTVS Details\nMake: " << make << endl;
+        showBikeDetail();
+    }
+};
+
+int main() {
+    Audi a;
+    Ford f;
+    Bajaj b;
+    TVS t;
+
+    cout << "\nEnter Audi Info \n";
+    a.input();
+
+    cout << "\nEnter Ford Info \n";
+    f.input();
+
+    cout << "\n Enter Bajaj Info \n";
+    b.input();
+
+    cout << "\n Enter TVS Info \n";
+    t.input();
+
+    cout << "\nShowing Vehicle Details \n";
+    a.show();
+    f.show();
+    b.show();
+    t.show();
+
+    return 0;
+}
