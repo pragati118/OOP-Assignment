@@ -1,0 +1,41 @@
+Assignment 18
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+private:
+    string name;
+
+public:
+
+    Student() {
+        name = "Unknown";
+    }
+
+    Student(string studentkaName) {
+        name = studentkaName;
+    }
+
+    void displayTheNameOfStudent() {
+        cout << "Student Name: " << name << endl;
+    }
+};
+
+int main() {
+    Student s1("Pragati");
+    Student s3("Shruti");
+    Student s2;
+
+    s1.displayTheNameOfStudent();  
+    s3.displayTheNameOfStudent();  
+    s2.displayTheNameOfStudent();  
+
+    return 0;
+}
+
+Output
+Student Name: Pragati
+Student Name: Shruti
+Student Name: Unknown
