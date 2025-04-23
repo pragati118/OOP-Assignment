@@ -1,0 +1,147 @@
+#include <iostream>
+ #include <string>
+ using namespace std;
+ 
+ class Employee {
+ protected:
+     string name;
+     int empID;
+ 
+ public:
+     void Details() {
+         cin.ignore();
+         cout << "Enter name: ";
+         getline(cin, name);
+         cout << "Enter employee ID: ";
+         cin >> empID;
+     }
+ 
+     void showingDetails() {
+         cout << "Name: " << name << endl;
+         cout << "Employee ID: " << empID << endl;
+     }
+ };
+ 
+ class Teacher : public Employee {
+ private:
+     string subject;
+ 
+ public:
+     void Details() {
+         Employee::Details();
+         cin.ignore();
+         cout << "Enter subject: ";
+         getline(cin, subject);
+     }
+ 
+     void showingDetails() {
+         Employee::showingDetails();
+         cout << "Subject: " << subject << endl;
+     }
+ };
+ 
+ class Officer : public Employee {
+ private:
+     char grade;
+ 
+ public:
+     void Details() {
+         Employee::Details();
+         cout << "Enter grade (A/B/C): ";
+         cin >> grade;
+     }
+ 
+     void showingDetails() {
+         Employee::showingDetails();
+         cout << "Grade: " << grade << endl;
+     }
+ };
+ 
+ class Typist : public Employee {
+ private:
+     string type;
+     float speed;
+ 
+ public:
+     void Details() {
+         Employee::Details();
+         cout << "Enter type of typist (Regular/Casual): ";
+         cin >> type;
+         cout << "Enter typing speed (WPM): ";
+         cin >> speed;
+     }
+ 
+     void showingDetails() {
+         Employee::showingDetails();
+         cout << "Typist Type: " << type << endl;
+         cout << "Typing Speed: " << speed << " wpm" << endl;
+     }
+ };
+ 
+ int main() {
+     Teacher T;
+     Officer O;
+     Typist TP;
+ 
+     cout << "\n--- Enter Teacher Details ---\n";
+     T.Details();
+ 
+     cout << "\n--- Enter Officer Details ---\n";
+     O.Details();
+ 
+     cout << "\n--- Enter Typist Details ---\n";
+     TP.Details();
+ 
+     cout << "\n======= DISPLAYING DETAILS =======\n";
+ 
+     cout << "\n--- Teacher ---\n";
+     T.showingDetails();
+ 
+     cout << "\n--- Officer ---\n";
+     O.showingDetails();
+ 
+     cout << "\n--- Typist ---\n";
+     TP.showingDetails();
+ 
+     return 0;
+ }
+
+output:
+--- Enter Teacher Details ---
+
+Enter name: pragati
+Enter employee ID: 1181
+Enter subject: Maths
+
+--- Enter Officer Details ---
+
+Enter name: Shruti
+Enter employee ID: 9008
+Enter grade (A/B/C): A
+
+--- Enter Typist Details ---
+Enter name: bhumi
+Enter employee ID: 8234
+Enter type of typist (Regular/Casual): casual
+Enter typing speed (WPM): 75
+
+======= DISPLAYING DETAILS =======
+
+--- Teacher ---
+Name: pragati
+Employee ID: 1181
+Subject: Maths
+
+--- Officer ---
+Name: Shruti
+Employee ID: 9008
+Grade: A
+
+--- Typist ---
+Name: bhumi
+Employee ID: 8234
+Typist Type: casual
+Typing Speed: 75 wpm
+
+
+=== Code Execution Successful ===
