@@ -1,0 +1,25 @@
+Assignment 19
+
+#include<iostream>
+using namespace std;
+
+class Rectangle{
+private:
+    int length,breadth;
+public:
+
+    Rectangle():length(0),breadth(0)//Used for INitialization list
+    {}
+
+    Rectangle(int l,int b){
+        length=l;
+        breadth=b;
+    }
+
+    Rectangle(int side){
+        length=side;breadth=side;
+    }
+Output
+Area of the Rectangle is:0
+Area of the Rectangle is:450
+Area of the Rectangle is:625
