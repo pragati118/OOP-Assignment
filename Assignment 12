@@ -1,0 +1,75 @@
+Assignment 12
+ 
+ #include <iostream>
+ using namespace std;
+ 
+ class Fruit {
+ public:
+ int sum;
+ Fruit() {
+ sum = 0;
+ }
+     int total; 
+ 
+     Fruit() {
+         total = 0;
+     }
+ };
+ 
+ class Apples : public Fruit {
+ public:
+ int apples;
+ Apples(int a) {
+ apples = a;
+ sum += a;
+ }
+     int apples;
+ 
+     Apples(int a) {
+         apples = a;
+         total += a;
+     }
+ };
+ 
+ class Mangoes : public Fruit {
+ 
+ public:
+ int mangoes;
+ Mangoes(int m) {
+ mangoes = m;
+ sum+=m ;
+ }
+     int mangoes;
+ 
+     Mangoes(int m) {
+         mangoes = m;
+         total += m;
+     }
+ };
+ 
+ int main() {
+ Apples a(5);
+ Mangoes m(6);
+     Apples a(11);
+     Mangoes m(7);
+ 
+ cout &lt;&lt; &quot;Number of apples: &quot; &lt;&lt; a.apples &lt;&lt; endl;
+ cout &lt;&lt; &quot;Number of mangoes: &quot; &lt;&lt; m.mangoes &lt;&lt; endl;
+ cout &lt;&lt; &quot;Total number of fruits: &quot; &lt;&lt; a.apples + m.mangoes &lt;&lt; endl;
+     cout << "Number of apples is: " << a.apples << endl;
+     cout << "Number of mangoes is: " << m.mangoes << endl;
+     cout << "sum of  number of fruits is: " << a.apples + m.mangoes << endl;
+ 
+ return 0;
+     return 0;
+ }
+ 
+ Output
+ Number of apples: 5
+ Number of mangoes: 6
+ Total number of fruits: 11
+ Number of apples is: 11
+ Number of mangoes is: 7
+ sum of  number of fruits is: 18
+ 
+ === Code Execution Successful ===
