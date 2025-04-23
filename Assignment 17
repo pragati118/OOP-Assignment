@@ -1,0 +1,153 @@
+Assignment 17
+
+#include <iostream>
+using namespace std;
+class RBI {
+public:
+    float minInterest = 5.0;
+    float minBalance = 2000.0;
+    float maxWithdraw = 50000.0;
+
+    void GuidelinesforRBI() {
+        cout << "\nRBI Guidelines\n";
+        cout << "Minimum Interest Rate: " << minInterest << "%" << endl;
+        cout << "Minimum Balance: Rs. " << minBalance << endl;
+        cout << "Max Withdrawal: Rs. " << maxWithdraw << endl;
+    }
+};
+class Customer {
+public:
+    string name;
+    int customerid;
+
+    void getCustomer() {
+        cout << "Enter the Customer Name: ";
+        cin.ignore();
+        getline(cin, name);
+        cout << "Enter the Customer ID: ";
+        cin >> customerid;
+    }
+
+    void showCustomer() {
+        cout << "Customer Name: " << name << endl;
+        cout << "Customer ID: " << customerid << endl;
+    }
+};
+
+class Account {
+public:
+    int accNo;
+    float balance;
+
+    void openAccount() {
+        cout << "Enter your Account Number: ";
+        cin >> accNo;
+        cout << "Enter Initial Balance: ";
+        cin >> balance;
+    }
+
+    void showAccount() {
+        cout << "Account No: " << accNo << endl;
+        cout << "Balance: Rs. " << balance << endl;
+    }
+};
+class SBI : public RBI, public Customer, public Account {
+public:
+    void showSBI() {
+        cout << "\n SBI Account detail\n";
+        showCustomer();
+        showAccount();
+        cout << "SBI Interest Rate: " << minInterest + 0.5 << "%" << endl;
+    }
+};
+class ICICI : public RBI, public Customer, public Account {
+public:
+    void showICICI() {
+        cout << "\nICICI Account Info\n";
+        showCustomer();
+        showAccount();
+        cout << "ICICI Interest Rate: " << minInterest + 1.0 << "%" << endl;
+    }
+};
+
+// PNB class
+class PNB : public RBI, public Customer, public Account {
+public:
+    void showPNB() {
+        cout << "\nPNB Account Info\n";
+        showCustomer();
+        showAccount();
+        cout << "PNB Interest Rate: " << minInterest + 0.75 << "%" << endl;
+    }
+};
+int main() {
+    RBI rbi;
+    SBI sbi;
+    ICICI icici;
+    PNB pnb;
+
+    rbi.GuidelinesforRBI();
+
+    cout << "\n Create SBI Account \n";
+    sbi.getCustomer();
+    sbi.openAccount();
+
+    cout << "\n Create ICICI Account \n";
+    icici.getCustomer();
+    icici.openAccount();
+
+    cout << "\nCreate PNB Account\n";
+    pnb.getCustomer();
+    pnb.openAccount();
+
+    sbi.showSBI();
+    icici.showICICI();
+    pnb.showPNB();
+
+    return 0;
+}
+
+output:
+RBI Guidelines
+Minimum Interest Rate: 5%
+Minimum Balance: Rs. 2000
+Max Withdrawal: Rs. 50000
+
+ Create SBI Account 
+Enter the Customer Name: Pragati
+Enter the Customer ID: 123
+Enter your Account Number: 5234
+Enter Initial Balance: 25000
+
+ Create ICICI Account 
+Enter the Customer Name: Sakshi
+Enter the Customer ID: 456
+Enter your Account Number: 4668
+Enter Initial Balance: 2000
+
+Create PNB Account
+Enter the Customer Name: Bhumi
+Enter the Customer ID: 578
+Enter your Account Number: 3557
+Enter Initial Balance: 15000
+
+ SBI Account detail
+Customer Name: Pragati
+Customer ID: 123
+Account No: 5234
+Balance: Rs. 25000
+SBI Interest Rate: 5.5%
+
+ICICI Account Info
+Customer Name: Sakshi
+Customer ID: 456
+Account No: 4668
+Balance: Rs. 2000
+ICICI Interest Rate: 6%
+
+PNB Account Info
+Customer Name: Bhumi
+Customer ID: 578
+Account No: 3557
+Balance: Rs. 15000
+PNB Interest Rate: 5.75%
