@@ -1,0 +1,188 @@
+Assignment 3
+
+#include <iostream>
+ #include <string>
+ using namespace std;
+ class Staff {
+ protected:
+     int staffcode;
+     string name;
+ 
+ public:
+     void input() {
+         cout << "Enter Staff Code: ";
+         cin >> staffcode;
+         cin.ignore();
+         cout << "Enter the Name of staff: ";
+         getline(cin, name);
+     }
+ 
+     void display() {
+         cout << "staffCode : " << staffcode << endl;
+         cout << "Name : " << name << endl;
+     }
+ };
+ class Teacher : public Staff {
+ protected:
+     string subject;
+     string publication;
+ 
+ public:
+     void input() {
+         Staff::input();
+         cout << "Enter the Subject: ";
+         getline(cin, subject);
+         cout << "Enter the Publication: ";
+         getline(cin, publication);
+     }
+ 
+     void display() {
+         Staff::display();
+         cout << "Subject     : " << subject << endl;
+         cout << "Publication : " << publication << endl;
+     }
+ };
+ class Officer : public Staff {
+ protected:
+     char grade;
+ 
+ public:
+     void input() {
+         Staff::input();
+         cout << "Enter Grade : ";
+         cin >> grade;
+     }
+ 
+     void display() {
+         Staff::display();
+         cout << "Grade : " << grade << endl;
+     }
+ };
+ class Typist : public Staff {
+ protected:
+     float speed;
+ 
+ public:
+     void input() {
+         Staff::input();
+         cout << "Enter Typing Speed : ";
+         cin >> speed;
+     }
+ 
+     void display() {
+         Staff::display();
+         cout << "Speed : " << speed  << endl;
+     }
+ };
+ 
+ class RegularTypist : public Typist {
+ public:
+     void input() {
+         Typist::input();
+     }
+ 
+     void display() {
+         Typist::display();
+         cout << "Type  : Regular Typist" << endl;
+     }
+ };
+ 
+ class CasualTypist : public Typist {
+ private:
+     float dailyWages;
+ 
+ public:
+     void input() {
+         Typist::input();
+         cout << "Enter Daily Wages: ";
+         cin >> dailyWages;
+     }
+ 
+     void display() {
+         Typist::display();
+         cout << "Type        : Casual Typist" << endl;
+         cout << "Daily Wages : Rs. " << dailyWages << endl;
+     }
+ };
+ int main() {
+     Teacher t;
+     Officer o;
+     RegularTypist rt;
+     CasualTypist ct;
+ 
+     cout << "\nEnter Teacher Details \n";
+     t.input();
+ 
+     cout << "\n Enter Officer Detail\n";
+     o.input();
+ 
+     cout << "\n Enter Regular Typist Details\n";
+     rt.input();
+ 
+     cout << "\n Enter Casual Typist Details \n";
+     ct.input();
+ 
+     cout << "\n========== DISPLAYING EMPLOYEE DETAILS ==========\n";
+ 
+     cout << "\n[Teacher]\n";
+     t.display();
+ 
+     cout << "\n[Officer]\n";
+     o.display();
+ 
+     cout << "\n[Regular Typist]\n";
+     rt.display();
+ 
+     cout << "\n[Casual Typist]\n";
+     ct.display();
+ 
+     return 0;
+ }
+ output
+ Enter Teacher Details 
+ Enter Staff Code: 123
+ Enter the Name of staff: as&h
+ Enter the Subject: maths
+ Enter the Publication: pearson
+ 
+  Enter Officer Detail
+ Enter Staff Code: 345
+ Enter the Name of staff: blue house
+ Enter Grade : A
+ 
+  Enter Regular Typist Details
+ Enter Staff Code: 567
+ Enter the Name of staff: red_house
+ Enter Typing Speed : 50
+ 
+  Enter Casual Typist Details 
+ Enter Staff Code: 865
+ Enter the Name of staff: green_house
+ Enter Typing Speed : 45
+ Enter Daily Wages: 500
+ 
+ ========== DISPLAYING EMPLOYEE DETAILS ==========
+ 
+ [Teacher]
+ staffCode : 123
+ Name : as&h
+ Subject     : maths
+ Publication : pearson
+ 
+ [Officer]
+ staffCode : 345
+ Name : blue house
+ Grade : A
+ 
+ [Regular Typist]
+ staffCode : 567
+ Name : red_house
+ Speed : 50
+ Type  : Regular Typist
+ 
+ [Casual Typist]
+ staffCode : 865
+ Name : green_house
+ Speed : 45
+ Type        : Casual Typist
+ Daily Wages : Rs. 500
